@@ -6,6 +6,6 @@ exports.dashboard = (req, res) => {
         if (err) return res.status(500).send("Error fetching projects");
 
         // Add logic to compute tasks and other metrics here
-        res.status(200).json({ projects });
+        res.status(200).json({ projects, status: 200 });
     });
 };

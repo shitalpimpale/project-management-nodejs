@@ -20,7 +20,7 @@ exports.register = (req, res) => {
             console.log(err)
             return res.status(500).json({ message: err });
         }
-        res.status(201).json({ message: 'User Registered' });
+        res.status(201).json({ status: 201, message: 'User Registered' });
     });
 };
 

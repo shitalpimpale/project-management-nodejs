@@ -10,7 +10,7 @@ exports.getProjects = (req, res) => {
 };
 
 exports.createProject = (req, res) => {
-    console.log(req)
+
     if (req.user.role !== 'admin') return res.status(403).json({ message: 'Access denied' });
 
     const { name, description, target_date } = req.body;
