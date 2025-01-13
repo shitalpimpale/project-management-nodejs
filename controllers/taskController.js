@@ -54,7 +54,7 @@ exports.updateTask = (req, res) => {
                     }
                 })
             }
-            res.status(201).json({ message: 'Tasks updated', status: 200 });
+            res.status(200).json({ message: 'Tasks updated', status: 200 });
         }
     );
 };
@@ -67,7 +67,7 @@ exports.deleteTask = (req, res) => {
         'DELETE from tasks where id = ?', [id],
         (err, result) => {
             if (err) return res.status(500).json({ message: 'Database Error' });
-            res.status(201).json({ status: 200, message: 'Task Deleted' });
+            res.status(200).json({ status: 200, message: 'Task Deleted' });
         }
     );
 };
