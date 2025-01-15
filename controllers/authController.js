@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../config/db');
-
+// register user 
 exports.register = (req, res) => {
     const { username, password, role } = req.body;
     let userRole = 0;
@@ -13,6 +13,12 @@ exports.register = (req, res) => {
         userRole = 2;
     } else {
         return res.status(500).json({ message: 'send valid role' });
+    }
+    if(username === ''){
+        return res.status(500).json({ message: 'send valid username' });
+    }
+    if(password === ''){
+        return res.status(500).json({ message: 'send valid password' });
     }
 
     db.query('INSERT INTO users (email, password,role) VALUES (?, ?,?)', [username, hashedPassword, userRole], (err, result) => {
