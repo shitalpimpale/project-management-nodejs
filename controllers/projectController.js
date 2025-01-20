@@ -1,9 +1,9 @@
 const db = require('../config/db');
 
 exports.getProjects = (req, res) => {
-    if (req.user.role !== '1') return res.status(403).json({ message: 'Access denied' });
-
-    console.log(req.query)
+  //   if (req.user.role !== '1') return res.status(403).json({ message: 'Access denied' });
+   console.log("=====")
+    console.log(req.user)
     db.query('SELECT * FROM projects ', (err, results) => {
         if (err) return res.status(500).json({ message: err });
         res.status(200).json({ data: results, status: 200 });
@@ -12,7 +12,7 @@ exports.getProjects = (req, res) => {
 
 exports.createProject = (req, res) => {
 
-    if (req.user.role !== '1') return res.status(403).json({ message: 'Access denied' });
+  //  if (req.user.role !== '1') return res.status(403).json({ message: 'Access denied' });
 
     const { name, description, target_date } = req.body;
 
@@ -27,7 +27,7 @@ exports.createProject = (req, res) => {
 };
 
 exports.updateProject = (req, res) => {
-    if (req.user.role !== '1') return res.status(403).json({ message: 'Access denied' });
+   // if (req.user.role !== '1') return res.status(403).json({ message: 'Access denied' });
 
     const { name, description, target_date, id } = req.body;
 
